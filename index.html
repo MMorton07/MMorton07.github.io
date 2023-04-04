@@ -59,28 +59,28 @@
                       <head>
                       </head>
                       <body>
-                        <p>This page has been viewed <span id="azure database"></span> times.</p>
-                        <script>
-                          const functionApi = 'https://azurefunctionappmm.azurewebsites.net/api/HttpTrigger1?code=1KSIgslz5jq-EaNZeOWYgsKXfNKbBjVj3wRY0IyvZ6buAzFu9PEEcA==';
-                        
-                          const updateCounter = (count) => {
-                            const counterElement = document.getElementById("azure database");
-                            if (counterElement) {
-                              counterElement.textContent = count;
-                            }
-                          }
-                        
-                          fetch(functionApi)
-                            .then(response => response.json())
-                            .then(data => {
-                              updateCounter(data.count);
-                            })
-                            .catch(error => {
-                              console.log(error);
-                            });
-                        </script>
-
-                      </body>
+                        <body>
+                            <p>This page has been viewed <span id="visitors"></span> times.</p>
+                            <script>
+                              const functionApi = 'https://azurefunctionappmm.azurewebsites.net/api/HttpTrigger1?code=1KSIgslz5jq-EaNZeOWYgsKXfNKbBjVj3wRY0IyvZ6buAzFu9PEEcA==';
+                          
+                              const updateCounter = (count) => {
+                                const counterElement = document.getElementById("visitors");
+                                if (counterElement) {
+                                  counterElement.textContent = count;
+                                }
+                              }
+                          
+                              fetch(functionApi)
+                                .then(response => response.json())
+                                .then(data => {
+                                  updateCounter(data.count);
+                                })
+                                .catch(error => {
+                                  console.log(error);
+                                });
+                            </script>
+                          </body>                          
                 </html>
                 </div>
             </section>
