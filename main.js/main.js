@@ -8,15 +8,15 @@ const functionApi = 'https://azurefunctionappmm.azurewebsites.net/api/HttpTrigge
 const visitors = () => {
     let count = 30;
     fetch(functionApi)
-    .then(response => {
-        return response.json()
-    })
-    .then(response => {
+      .then(response => response.json())
+      .then(data => {
         console.log("Website called function API.");
-        count = response <br />document.getElementById('counter').innerText = count;
-
-    }).catch(function(error) {
+        count = data.count;
+        document.getElementById('counter').textContent = count;
+      })
+      .catch(error => {
         console.log(error);
       });
     return count;
-}
+  };
+  
