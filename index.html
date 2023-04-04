@@ -59,13 +59,18 @@
                       <head>
                       </head>
                       <body>
-                        <p>This page has been viewed <a id="counter"></a> times.</p>
+                        <p>This page has been viewed <span id="counter"></span> times.</p>
                         <script>
-                             fetch('https://azurefunctionappmm.azurewebsites.net/api/HttpTrigger1?code=1KSIgslz5jq-EaNZeOWYgsKXfNKbBjVj3wRY0IyvZ6buAzFu9PEEcA==')
+                            const functionApi = 'https://azurefunctionappmm.azurewebsites.net/api/HttpTrigger1?code=1KSIgslz5jq-EaNZeOWYgsKXfNKbBjVj3wRY0IyvZ6buAzFu9PEEcA=='; 
+                            fetch(functionApi)
                                 .then(response => response.json())
                                 .then(data => {
-                                     // Update the counter on your website
-                                    document.getElementById('counter').textContent = data.count;
+                                    console.log("Website called function API.");
+                                    const count = data.count;
+                                    document.getElementById('counter').textContent = count;
+                                })
+                                .catch(error => {
+                                    console.log(error);
                                 });
                             </script>
                       </body>
