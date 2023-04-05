@@ -1,6 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                visitors();
+            });
+          const functionApi = 'https://azurefunctionappmm.azurewebsites.net/api/HttpTrigger1?code=1KSIgslz5jq-EaNZeOWYgsKXfNKbBjVj3wRY0IyvZ6buAzFu9PEEcA==';
+      
+          const updateCounter = (count) => {
+            const counterElement = document.getElementById("visitors");
+            if (counterElement) {
+              counterElement.textContent = count;
+            }
+          }
+                                
+          fetch(functionApi)
+            .then(response => response.json())
+            .then(data => {
+              updateCounter(data.count);
+            })
+            .catch(error => {
+              console.log(error);
+            });
+        </script> 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
@@ -58,29 +80,7 @@
                 <html>
                       <head>
                       </head>
-                            <p>This page has been viewed <span id="visitors"></span> times.</p>
-                            <script>
-                                window.addEventListener('DOMContentLoaded', (event) => {
-                                    visitors();
-                                });
-                              const functionApi = 'https://azurefunctionappmm.azurewebsites.net/api/HttpTrigger1?code=1KSIgslz5jq-EaNZeOWYgsKXfNKbBjVj3wRY0IyvZ6buAzFu9PEEcA==';
-                          
-                              const updateCounter = (count) => {
-                                const counterElement = document.getElementById("visitors");
-                                if (counterElement) {
-                                  counterElement.textContent = count;
-                                }
-                              }
-                                                    
-                              fetch(functionApi)
-                                .then(response => response.json())
-                                .then(data => {
-                                  updateCounter(data.count);
-                                })
-                                .catch(error => {
-                                  console.log(error);
-                                });
-                            </script>                         
+                            <p>This page has been viewed <span id="visitors"></span> times.</p>                        
                 </div>
             </section>
             <hr class="m-0" />
