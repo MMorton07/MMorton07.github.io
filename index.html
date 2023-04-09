@@ -6,8 +6,7 @@
           const functionApi = 'https://azurefunctionappmm.azurewebsites.net/api/HttpTrigger1?code=1KSIgslz5jq-EaNZeOWYgsKXfNKbBjVj3wRY0IyvZ6buAzFu9PEEcA==';
       
           const updateCounter = (count) => {
-            const counterElement = response.count;
-            document.getElementById('visitors').innerText = count;
+            const counterElement = document.getElementById('visitors').innerText = response.count;
             if (counterElement) {
               counterElement.textContent = count;
             }
