@@ -19,7 +19,7 @@
               counterElement.innerText = "30"
 
             }
-          }
+          
                                 
           fetch(functionApi)
             .then(response => response.json())
@@ -29,6 +29,8 @@
             .catch(error => {
               console.log(error);
             });
+        return count;
+        }
         </script> 
     </head>
         <meta charset="utf-8" />
