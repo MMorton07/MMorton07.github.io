@@ -6,14 +6,14 @@
     </head>
 
     <body>
-        <div id="visitors">100</div>
+        <div id="counter">100</div>
 
         <script>
 
           const functionApi = 'https://azurefunctionappmm.azurewebsites.net/api/HttpTrigger1?code=1KSIgslz5jq-EaNZeOWYgsKXfNKbBjVj3wRY0IyvZ6buAzFu9PEEcA==';
       
           const updateCounter = (count) => {
-            const counterElement = document.getElementById("visitors");
+            const counterElement = document.getElementById("counter");
             if (counterElement) {
               counterElement.textContent = count;
               counterElement.innerText = "30"
