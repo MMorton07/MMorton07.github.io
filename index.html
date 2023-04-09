@@ -6,30 +6,32 @@
     </head>
 
     <body>
-        <div id="counter">100</div>
+        <div id="visitors">100</div>
 
         <script>
-            const functionApi = 'https://azurefunctionappmm.azurewebsites.net/api/HttpTrigger1?code=1KSIgslz5jq-EaNZeOWYgsKXfNKbBjVj3wRY0IyvZ6buAzFu9PEEcA==';
-          
-            const updateCounter = (count) => {
-              const counterElement = document.getElementById("counter");
-              if (counterElement) {
-                counterElement.textContent = count;
-              }
-          
-              fetch(functionApi)
-                .then(response => response.json())
-                .then(data => {
-                  updateCounter(data.count);
-                })
-                .catch(error => {
-                  console.log(error);
-                });
+
+          const functionApi = 'https://azurefunctionappmm.azurewebsites.net/api/HttpTrigger1?code=1KSIgslz5jq-EaNZeOWYgsKXfNKbBjVj3wRY0IyvZ6buAzFu9PEEcA==';
+      
+          const updateCounter = (count) => {
+            const counterElement = document.getElementById("visitors");
+            if (counterElement) {
+              counterElement.textContent = count;
+              counterElement.innerText = "30"
+
             }
           
-            updateCounter(0); // start with a count of 0
-          </script>
-          
+                                
+          fetch(functionApi)
+            .then(response => response.json())
+            .then(data => {
+              updateCounter(data.count);
+            })
+            .catch(error => {
+              console.log(error);
+            });
+        return count;
+          }
+        </script> 
     </head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
